@@ -44,6 +44,7 @@ export class BookListComponent extends PaginateBaseComponent implements OnInit {
   addNewBook(): void {
     const modalRef = this.modalService.open(BookDetailsComponent, this.modalOptions);
     modalRef.componentInstance.isEdit = true;
+    modalRef.componentInstance.title = "Add a new book";
 
     modalRef.componentInstance.onUpdate.subscribe((data: any) => {
       this.notificationService.success('A new book was added successfully!');
@@ -54,6 +55,7 @@ export class BookListComponent extends PaginateBaseComponent implements OnInit {
   editBook(book: Book): void {
     const modalRef = this.modalService.open(BookDetailsComponent, this.modalOptions);
     modalRef.componentInstance.isEdit = true;
+    modalRef.componentInstance.title = "Edit the book";
     modalRef.componentInstance.book = book;
 
     modalRef.componentInstance.onUpdate.subscribe((data: any) => {
