@@ -7,12 +7,12 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: RoutesEnum.HOME
+    redirectTo: RoutesEnum.BOOK_LIST
   },
   {
-    path: RoutesEnum.HOME,
+    path: RoutesEnum.BOOK_LIST,
     component: BookListComponent
-  },
+  }
 ];
 
 @NgModule({

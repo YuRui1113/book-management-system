@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   siteName: 'Book Management System',
-  restUrl: 'http://localhost:8080',
+  restUrl: 'http://20.6.150.13',
   pageSize: 10
 };
