@@ -6,19 +6,31 @@ The book management system  includes  two applications:
 - Web Front application which developed using Angular, code path /WebFront
 
 ## How To Build
+
+- Build preparation
+
+Make sure install below softwares on your local machine:
+1. Java JDK 17
+2. Apache Maven 4.0.0-alpha-8 or above it
+3. Angular CLI 16.0.1 or above it
+4. NPM 9.6.4 or above it
+
 - Build Rest-API using Apache Maven
 
-Enter the project root directory and run below command: 
+Enter the project root directory and build Rest-API with below command: 
 ```
+cd rest-api
 mvn clean package
 ```
 It will generate a jar named 'rest-api-0.0.1-SNAPSHOT.jar' in /target folder.
 
 - Build Web Front using Angular CLI
 
-Enter the project root directory and run below command: 
+Enter the project root directory and build Web Front with below command: 
 ```
-ng build -c production
+cd WebFront
+npm install
+ng build -c development
 ```
 It will generate the build package in /dist/web-front folder.
 
@@ -30,21 +42,21 @@ The data source configuration is in application-local.yml, if it is different fr
 
 - Run Rest-API
 
-At your local environment, you can follow below steps to run Rest-API:
-1. Install JRE for java 17
-2. Enter the build jar folder '/target' and run Rest-API by below command:
+At project root folder, run Rest-API by below command:
 ```
+cd target
 java -jar rest-api-0.0.1-SNAPSHOT.jar
 ```
+Verify the application running by view http://localhost:8080/api/v1/book?page=0&size=10.
 
 - Run Web Front
 
 
-At your local environment, the convenient way is using Angular CLI, make sure your have installed Angular CLI on your machine. Enter the project root directory and use below command to run Web Front application:
+At project root folder, run Web Front application by below command:
 ```
 ng serve
 ```
-Then you can view it by http://localhost:4200.
+Verify the application running by view http://localhost:4200.
 
 Another way to run Web Front is using the above build package which  can be run in a web server. Ex. Nginx. If you have Nginx, you can use below steps to run:
 1. Install Nginx web server on your machine
