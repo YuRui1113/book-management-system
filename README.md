@@ -103,3 +103,8 @@ docker push tagname
 ```
 
 Then you can use these images to create container instance on cloud like Azure.
+
+## Run application on Azure
+
+- Rest-API: http://front.tyuapp.top
+- Web Front application: http://restapi.tyuapp.top/api/v1/book?page=0&size=10

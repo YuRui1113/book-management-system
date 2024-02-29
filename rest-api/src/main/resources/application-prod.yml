@@ -1,4 +1,4 @@
-corsOrigin: http://20.6.154.6
+corsOrigin: http://front.tyuapp.top,http://web.tyuapp.top
 spring:
   datasource:
     url: jdbc:postgresql://bookrestapi-server.postgres.database.azure.com/bookrestapi-database

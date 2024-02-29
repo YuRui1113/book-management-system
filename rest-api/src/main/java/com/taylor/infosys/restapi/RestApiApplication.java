@@ -29,9 +29,10 @@ public class RestApiApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
+				String corsOrgins = environment.getProperty("corsOrigin");
 				registry
 						.addMapping("/api/v1/**")
-						.allowedOrigins(environment.getProperty("corsOrigin"))
+						.allowedOrigins(corsOrgins.split(","))
 						.allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH");
 			}
 		};

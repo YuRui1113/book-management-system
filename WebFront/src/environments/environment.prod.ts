@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   siteName: 'Book Management System',
-  restUrl: 'http://20.6.150.13',
+  restUrl: 'http://restapi.tyuapp.top',
   pageSize: 10
 };
