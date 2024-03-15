@@ -1,10 +1,10 @@
 /*
- * File: src\main\java\com\taylor\infosys\restapi\orm\repositories\BookRepository.java
+ * File: src\main\java\com\taylor\restapi\orm\repositories\BookRepository.java
  * Project: Rest-API
  * Created Date: Sunday, February 25th 2024, 6:35:07 pm
  * Author: Rui Yu (yurui_113@hotmail.com)
  * -----
- * Last Modified: Sunday, 25th February 2024 7:19:59 pm
+ * Last Modified: Wednesday, 13th March 2024 9:09:49 am
  * Modified By: Rui Yu (yurui_113@hotmail.com>)
  * -----
  * Copyright (c) 2024 Rui Yu
@@ -15,7 +15,7 @@
  * Sunday, February 25th 2024	Rui Yu		Initial version
  */
 
-package com.taylor.infosys.restapi.orm.repositories;
+package com.taylor.restapi.orm.repositories;
 
 import java.util.Optional;
 
@@ -23,7 +23,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.taylor.infosys.restapi.orm.entities.Book;
+import com.taylor.restapi.orm.entities.Book;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
 

@@ -1,4 +1,4 @@
-package com.taylor.infosys.restapi;
+package com.taylor.restapi;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.taylor.infosys.restapi.orm.entities.Book;
-import com.taylor.infosys.restapi.services.BookService;
+import com.taylor.restapi.orm.entities.Book;
+import com.taylor.restapi.services.BookService;
 
 @SpringBootApplication
 public class RestApiApplication {

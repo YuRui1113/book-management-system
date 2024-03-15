@@ -1,10 +1,10 @@
 /*
- * File: src\main\java\com\taylor\infosys\restapi\services\BookService.java
+ * File: src\main\java\com\taylor\restapi\services\BookService.java
  * Project: Rest-API
  * Created Date: Sunday, February 25th 2024, 6:36:54 pm
  * Author: Rui Yu (yurui_113@hotmail.com)
  * -----
- * Last Modified: Monday, 26th February 2024 10:01:33 pm
+ * Last Modified: Wednesday, 13th March 2024 9:09:56 am
  * Modified By: Rui Yu (yurui_113@hotmail.com>)
  * -----
  * Copyright (c) 2024 Rui Yu
@@ -15,7 +15,7 @@
  * Sunday, February 25th 2024	Rui Yu		Initial version
  */
 
-package com.taylor.infosys.restapi.services;
+package com.taylor.restapi.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,10 +26,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.taylor.infosys.restapi.exceptions.ResourceAlreadyExistsException;
-import com.taylor.infosys.restapi.exceptions.ResourceNotFoundException;
-import com.taylor.infosys.restapi.orm.entities.Book;
-import com.taylor.infosys.restapi.orm.repositories.BookRepository;
+import com.taylor.restapi.exceptions.ResourceAlreadyExistsException;
+import com.taylor.restapi.exceptions.ResourceNotFoundException;
+import com.taylor.restapi.orm.entities.Book;
+import com.taylor.restapi.orm.repositories.BookRepository;
 
 @Service
 public class BookService {

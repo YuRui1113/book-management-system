@@ -1,7 +1,7 @@
 corsOrigin: http://front.tyuapp.top,http://web.tyuapp.top
 spring:
   datasource:
-    url: jdbc:postgresql://bookrestapi-server.postgres.database.azure.com/bookrestapi-database
+    url: jdbc:postgresql://bookrestapi-server.postgres.database.azure.com/book_database
     username: zolmumdaph
     password: 683Z7OJR7EQBQ60U$
     sslmode: require

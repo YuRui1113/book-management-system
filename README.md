@@ -36,9 +36,16 @@ It will generate the build package in /dist/web-front folder.
 
 ## How To Run
 For run application on local environment, must follow below steps:
-- Create a PostgreSQL database on your local machine
+- Create a PostgreSQL database named 'book_database' on your local machine
 
-The data source configuration is in application-local.yml, if it is different from your current setting, change this file and rebuild.
+You can use the default postgres account to create it with below using command line:
+```
+-- Login
+psql -h localhost -U postgres
+-- Create the database
+CREATE DATABASE book_database;
+```
+
 
 - Run Rest-API
 

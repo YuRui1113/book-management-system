@@ -1,10 +1,10 @@
 /*
- * File: src\main\java\com\taylor\infosys\restapi\controllers\BookController.java
+ * File: src\main\java\com\taylor\restapi\controllers\BookController.java
  * Project: Rest-API
  * Created Date: Sunday, February 25th 2024, 7:27:24 pm
  * Author: Rui Yu (yurui_113@hotmail.com)
  * -----
- * Last Modified: Monday, 26th February 2024 9:59:54 pm
+ * Last Modified: Wednesday, 13th March 2024 9:09:11 am
  * Modified By: Rui Yu (yurui_113@hotmail.com>)
  * -----
  * Copyright (c) 2024 Rui Yu
@@ -15,7 +15,7 @@
  * Sunday, February 25th 2024	Rui Yu		Initial version
  */
 
-package com.taylor.infosys.restapi.controllers;
+package com.taylor.restapi.controllers;
 
 import java.net.URI;
 import java.util.Optional;
@@ -34,8 +34,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.taylor.infosys.restapi.orm.entities.Book;
-import com.taylor.infosys.restapi.services.BookService;
+import com.taylor.restapi.orm.entities.Book;
+import com.taylor.restapi.services.BookService;
 
 @RestController
 @RequestMapping("/api/v1/book")

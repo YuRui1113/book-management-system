@@ -1,7 +1,7 @@
 corsOrigin: http://localhost:4200
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/test
+    url: jdbc:postgresql://localhost:5432/book_database
     username: postgres
     password: 123456
   jpa:

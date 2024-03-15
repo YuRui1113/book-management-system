@@ -1,10 +1,10 @@
 /*
- * File: src\main\java\com\taylor\infosys\restapi\orm\entities\Book.java
+ * File: src\main\java\com\taylor\restapi\orm\entities\Book.java
  * Project: Rest-API
  * Created Date: Sunday, February 25th 2024, 6:21:15 pm
  * Author: Rui Yu (yurui_113@hotmail.com)
  * -----
- * Last Modified: Monday, 26th February 2024 7:50:11 am
+ * Last Modified: Wednesday, 13th March 2024 9:09:44 am
  * Modified By: Rui Yu (yurui_113@hotmail.com>)
  * -----
  * Copyright (c) 2024 Rui Yu
@@ -15,7 +15,7 @@
  * Sunday, February 25th 2024	Rui Yu		Initial version
  */
 
-package com.taylor.infosys.restapi.orm.entities;
+package com.taylor.restapi.orm.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

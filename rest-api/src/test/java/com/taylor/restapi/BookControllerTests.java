@@ -1,4 +1,4 @@
-package com.taylor.infosys.restapi;
+package com.taylor.restapi;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -23,9 +23,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.taylor.infosys.restapi.controllers.BookController;
-import com.taylor.infosys.restapi.orm.entities.Book;
-import com.taylor.infosys.restapi.services.BookService;
+import com.taylor.restapi.controllers.BookController;
+import com.taylor.restapi.orm.entities.Book;
+import com.taylor.restapi.services.BookService;
 
 @WebMvcTest(BookController.class)
 class BookControllerTests {
