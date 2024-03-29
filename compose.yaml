@@ -1,0 +1,50 @@
+version: '3.8'
+services:
+  database:
+    container_name: db
+    image: postgres:15.2
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d book_database -U taylor"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    ports:
+      - '15432:5432'
+    env_file: 
+      - .env
+    environment:
+      - POSTGRES_DB=book_database
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      # Create database and populate initial data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+    container_name: rest-api
+    build: /rest-api/
+    restart: always
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - '8080:8080'
+    env_file: 
+      - .env
+    environment:
+      - spring.profiles.active=docker
+      - spring.datasource.url=jdbc:postgresql://db:5432/book_database
+      - spring.datasource.username=${POSTGRES_USER}
+      - spring.datasource.password=${POSTGRES_PASSWORD}
+
+  frontend:
+    container_name: angular-web-client
+    build: /WebFront/
+    ports:
+      - '8081:80'
+    depends_on:
+      - backend
+
+volumes:
+  db-data:
+    driver: local

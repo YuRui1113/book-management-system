@@ -6,7 +6,10 @@ FROM nginx:stable-alpine
 # Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy nginx config file
+# Remove default nginx configuration
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copy nginx config file for resolving 404 error when refreshing page
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 
 # Copy dist folder fro build stage to nginx public folder

@@ -4,7 +4,7 @@
  * Created Date: Sunday, February 25th 2024, 6:21:15 pm
  * Author: Rui Yu (yurui_113@hotmail.com)
  * -----
- * Last Modified: Wednesday, 13th March 2024 9:09:44 am
+ * Last Modified: Tuesday, 26th March 2024 4:06:13 pm
  * Modified By: Rui Yu (yurui_113@hotmail.com>)
  * -----
  * Copyright (c) 2024 Rui Yu
@@ -34,7 +34,7 @@ import lombok.ToString;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", insertable = false, updatable = false)
     private Long id;
 

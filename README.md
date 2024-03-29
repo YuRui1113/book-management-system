@@ -46,7 +46,6 @@ psql -h localhost -U postgres
 CREATE DATABASE book_database;
 ```
 
-
 - Run Rest-API
 
 At project root folder, run Rest-API by below command:
@@ -57,7 +56,6 @@ java -jar rest-api-0.0.1-SNAPSHOT.jar
 Verify the application running by view http://localhost:8080/api/v1/book?page=0&size=10.
 
 - Run Web Front
-
 
 At project root folder, run Web Front application by below command:
 ```
@@ -111,7 +109,8 @@ docker push tagname
 
 Then you can use these images to create container instance on cloud like Azure.
 
-## Run application on Azure
-
-- Rest-API: http://front.tyuapp.top
-- Web Front application: http://restapi.tyuapp.top/api/v1/book?page=0&size=10
+## Run application on local using docker compose
+At project root folder, run docker compose by below command:
+```
+docker commpose up -d
+```

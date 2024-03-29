@@ -2,8 +2,6 @@ package com.taylor.restapi;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,10 +13,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.taylor.restapi.orm.entities.Book;
 import com.taylor.restapi.services.BookService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @SpringBootApplication
 public class RestApiApplication {
-
-	private static final Logger log = LoggerFactory.getLogger(RestApiApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(RestApiApplication.class, args);
@@ -42,6 +41,8 @@ public class RestApiApplication {
 	public CommandLineRunner demo(BookService service) {
 		return (args) -> {
 			List<Book> books = service.getAllBooks();
+			// For docker environment, it will use initial SQL script to create tables and
+			// load data when container starts
 			if (!(books != null && books.size() > 0)) {
 				// Add initial data
 				log.info("Create initial data for books.");
