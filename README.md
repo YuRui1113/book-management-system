@@ -136,3 +136,5 @@ Then point virtual domains: book.taylor.com and api.taylor.com to this Ingress I
 192.168.137.20 book.taylor.com
 192.168.137.20 api.taylor.com
 ```
+
+At last, you can use http://book.taylor.com to verify those application running ok by browser on a machine which can reach 192.168.137.20.
