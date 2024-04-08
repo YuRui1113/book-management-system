@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-api
+  labels:
+    app: rest-api
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rest-api
+      tier: backend
+  strategy:
+    # All existing Pods are killed before new ones are created
+    type: Recreate
+    # Template for the Pods in this deployment
+  template:
+    metadata:
+      labels:
+        app: rest-api
+        tier: backend
+    spec:
+      containers:
+        - name: rest-api
+          image: yurui113/rest-api:latest
+          imagePullPolicy: "Always"
+          #imagePullPolicy: "IfNotPresent"
+          ports:
+            # The port that the container exposes
+            - containerPort: 80
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              memory: 256Mi
+              cpu: "0.2"
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: kube
+            - name: POSTGRES_DB_HOST
+              value: postgres.book.svc.cluster.local
+            - name: POSTGRES_DB_PORT
+              value: "5432"
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres
+                  key: POSTGRES_DB
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: POSTGRES_PASSWORD
+            # For CORS      
+            - name: API_CLIENTS
+              value: http://book.taylor.com
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 80
+            initialDelaySeconds: 60
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: actuator/health/readiness
+              port: 80
+            initialDelaySeconds: 60
+            periodSeconds: 10
+      dnsConfig:
+        options:
+          - name: ndots
+            value: "2"
+

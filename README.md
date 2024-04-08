@@ -114,3 +114,25 @@ At project root folder, run docker compose by below command:
 ```
 docker commpose up -d
 ```
+
+## Deploy to K8S
+Copy all files in devops/kube to one machine of K8S cluster, run below to deploy:
+```
+chmod 777 install.sh
+chmod 777 rest-api/install.sh
+chmod 777 web-front/install.sh
+
+./install.sh
+```
+
+Fetch the IP address for Ingress by command:
+```
+kubectl get ingress -n book
+```
+
+Then point virtual domains: book.taylor.com and api.taylor.com to this Ingress IP address by configuring file C:\Windows\System32\drivers\etc\hosts if you uses Windows or /etc/hosts if you uses Linux, suppose the Ingress IP address is 192.168.137.20, then the file contents will be like:
+```
+# hosts file contents
+192.168.137.20 book.taylor.com
+192.168.137.20 api.taylor.com
+```

@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-initdb
+data:
+  init.sql:
+    CREATE TABLE public.books (
+      id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+      author varchar(100) NOT NULL,
+      isbn varchar(20) NOT NULL,
+      publication_year int2 NULL,
+      title varchar(250) NOT NULL,
+      CONSTRAINT uk_isbn UNIQUE (isbn)
+    );
+
+    INSERT INTO public.books
+    (author, isbn, publication_year, title)
+    VALUES('Abraham Stackhouse', '989-28-3705-007-2', 2001, 'Ballinby Boys');
+    INSERT INTO public.books
+    (author, isbn, publication_year, title)
+    VALUES('Amelia Wangerin, Jr.', '989-28-79-11297-4', 2002, 'Nothing But Capers');
+    INSERT INTO public.books
+    (author, isbn, publication_year, title)
+    VALUES('Anastasia Inez', '989-28-79-11297-8', 2003, 'Alanna Saves the Day');
+    INSERT INTO public.books
+    (author, isbn, publication_year, title)
+    VALUES('Arthur McCrumb', '989-28-79-18127-7', 2004, 'Post Alley');
+    INSERT INTO public.books
+    (author, isbn, publication_year, title)
+    VALUES('Arturo Hijuelos', '989-28-79-82197-5', 2005, 'Thatchwork Cottage');
+    INSERT INTO public.books
+    (author, isbn, publication_year, title)
+    VALUES('Bernard Hopf', '989-28-79-05638-4', 2006, 'Zero over Twelve');
+    INSERT INTO public.books
+    (author, isbn, publication_year, title)
+    VALUES('Bianca Thompson', '989-28-654-5018-9', 2007, 'Portmeirion');
+    INSERT INTO public.books
+    (author, isbn, publication_year, title)
+    VALUES('Bravig Lewisohn', '989-28-79-69807-2', 2008, 'Rystwyth');
+    INSERT INTO public.books
+    (author, isbn, publication_year, title)
+    VALUES('Burton Malamud', '989-28-79-69807-4', 2009, 'The Mallemaroking');
+    INSERT INTO public.books
+    (author, isbn, publication_year, title)
+    VALUES('Carolyn Segal', '989-28-79-05670-4', 2010, 'Can I Be Honest?');
+    INSERT INTO public.books
+    (author, isbn, publication_year, title)
+    VALUES('Charles Fenimore', '989-28-79-82749-6', 2011, 'No More Lightning');
+    INSERT INTO public.books
+    (author, isbn, publication_year, title)
+    VALUES('Clifford Wolitzer', '989-28-3705-987-7', 2012, '9803 North Millworks Road');

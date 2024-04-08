@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  labels:
+    app: postgres
+    tier: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+      tier: database
+  strategy:
+    # All existing Pods are killed before new ones are created
+    type: Recreate
+    # Template for the Pods in this deployment
+  template:
+    metadata:
+      labels:
+        app: postgres
+        tier: database
+    spec:
+      containers:
+        - name: book-db
+          image: postgres:15.2
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            # The port that the container exposes
+            - containerPort: 5432
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              memory: 256Mi
+              cpu: "0.2"
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres
+                  key: POSTGRES_DB
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: POSTGRES_PASSWORD
+          volumeMounts:
+            # This name should match the name specified in `volumes.name`
+            - name: postgres-persistent-storage
+              mountPath: /var/lib/postgresql/data
+            - name: postgresql-initdb
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: postgres-persistent-storage
+          persistentVolumeClaim:
+            claimName: postgres
+        - name: postgresql-initdb
+          configMap:
+            name: postgres-initdb
